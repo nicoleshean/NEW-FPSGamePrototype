@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/FPS/Scenes/IntroMenu.unity
+    guid: 56e3faabc5bb30f49a68bb8f1292f988
+  - enabled: 1
+    path: Assets/FPS/Scenes/CustomizedScene.unity
+    guid: 2f857927d3e59ee45a688e8c82649b3f
+  - enabled: 1
+    path: Assets/FPS/Scenes/SecondaryScene.unity
+    guid: f3ca2a870ec141241aa0852c0a8b0abc
+  - enabled: 1
+    path: Assets/FPS/Scenes/LoseScene.unity
+    guid: 72e5c65a45893714484002914e3fd521
   m_configObjects: {}
