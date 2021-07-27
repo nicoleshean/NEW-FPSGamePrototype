@@ -130,6 +130,7 @@ namespace Unity.FPS.Gameplay
         PlayerInputHandler m_InputHandler;
         CharacterController m_Controller;
         PlayerWeaponsManager m_WeaponsManager;
+        GameFlowManager m_GameFlowManager;
         Actor m_Actor;
         Vector3 m_GroundNormal;
         Vector3 m_CharacterVelocity;
@@ -175,6 +176,9 @@ namespace Unity.FPS.Gameplay
             m_Actor = GetComponent<Actor>();
             DebugUtility.HandleErrorIfNullGetComponent<Actor, PlayerCharacterController>(m_Actor, this, gameObject);
 
+            m_GameFlowManager = FindObjectOfType<GameFlowManager>();
+            DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, PlayerCharacterController>(m_GameFlowManager, this);
+
             m_Controller.enableOverlapRecovery = true;
 
             m_Health.OnDie += OnDie; //adds local OnDie function to delegate 
@@ -186,7 +190,7 @@ namespace Unity.FPS.Gameplay
 
         void Update()
         {
-            
+
 
             // check for Y kill
             if (!IsDead && transform.position.y < KillHeight)
@@ -198,7 +202,7 @@ namespace Unity.FPS.Gameplay
 
             //Debug.Log(startYPos);
 
-            bool wasGrounded = IsGrounded;
+ 
 
             if (!IsGrounded)
             {
@@ -214,11 +218,30 @@ namespace Unity.FPS.Gameplay
                 }
             }
 
-
+            //if game isn't ending, check for fall damage
             GroundCheck();
+            if (!m_GameFlowManager.GameIsEnding)
+            {
+                FallCheck();
+
+            }
 
 
-            // landing
+
+            // crouching
+            if (m_InputHandler.GetCrouchInputDown())
+            {
+                SetCrouchingState(!IsCrouching, false);
+            }
+
+            UpdateCharacterHeight(false);
+
+            HandleCharacterMovement();
+        }
+
+        void FallCheck()
+        {
+            bool wasGrounded = IsGrounded;
             if (IsGrounded && !wasGrounded) //if now grounded after not being grounded before
             {
                 endYPos = gameObject.transform.position.y;
@@ -228,7 +251,7 @@ namespace Unity.FPS.Gameplay
                 {
                     if (m_inflictDamage)
                     {
-                        
+
                         int dmgFromFall = Mathf.RoundToInt((startYPos - endYPos - DamageThreshold) * DamageMultiplier);
                         m_Health.TakeDamage(dmgFromFall, null);
                         AudioSource.PlayOneShot(FallDamageSfx);
@@ -259,16 +282,6 @@ namespace Unity.FPS.Gameplay
                 //    AudioSource.PlayOneShot(LandSfx);
                 //}
             }
-
-            // crouching
-            if (m_InputHandler.GetCrouchInputDown())
-            {
-                SetCrouchingState(!IsCrouching, false);
-            }
-
-            UpdateCharacterHeight(false);
-
-            HandleCharacterMovement();
         }
 
         void OnDie() //called from OnDie delegate

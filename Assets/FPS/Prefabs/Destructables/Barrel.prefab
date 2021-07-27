@@ -40,11 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0914267284bd7468f8ac89253e1557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LootPrefab: {fileID: 9114302251155428648, guid: 9ece032c799294749bbc3a5893605d91,
-    type: 3}
+  LootPrefab: {fileID: 9114302251155428648, guid: 9ece032c799294749bbc3a5893605d91, type: 3}
   DropRate: 0.5
-  DestroyVfx: {fileID: 7655095426451682942, guid: 073e2f4dd645e704a9af6c32bd1814c7,
-    type: 3}
+  DestroyVfx: {fileID: 7655095426451682942, guid: 073e2f4dd645e704a9af6c32bd1814c7, type: 3}
   DestroyVfxSpawnPoint: {fileID: 8036342021495269043}
   DamageTick: {fileID: 0}
   DestroySound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
@@ -107,13 +105,11 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: fd73cbf8f47b7604391616602476a368, type: 3}
 --- !u!1 &8038127128051213451 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1327118766988596, guid: fd73cbf8f47b7604391616602476a368,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 1327118766988596, guid: fd73cbf8f47b7604391616602476a368, type: 3}
   m_PrefabInstance: {fileID: 8037127672339511743}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8036342021495269043 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4309486039146252, guid: fd73cbf8f47b7604391616602476a368,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 4309486039146252, guid: fd73cbf8f47b7604391616602476a368, type: 3}
   m_PrefabInstance: {fileID: 8037127672339511743}
   m_PrefabAsset: {fileID: 0}

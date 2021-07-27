@@ -11,18 +11,25 @@ namespace Unity.FPS.Game
         [Tooltip("The chance the object has to drop loot")] [Range(0, 1)]
         public float DropRate = 1f;
 
-        [Header("FX")]
+        [Header("VFX")]
         [Tooltip("The VFX prefab spawned when the object is destroyed")]
         public GameObject DestroyVfx;
 
         [Tooltip("The point at which the destroy VFX is spawned")]
         public Transform DestroyVfxSpawnPoint;
 
+        [Header("SFX")]
+        [Tooltip("Audio Source to play from")]
+        public AudioSource AudioSource;
+
         [Tooltip("The sound played when the object is damaged")]
         public AudioClip DamageTick;
 
         [Tooltip("The sound played when the object is destroyed")]
         public AudioClip DestroySound;
+
+        [Tooltip("The volume at which the sounds play")] [Range(0,1)]
+        public float Volume = 1.0f;
 
         Health m_Health;
         bool m_WasDamagedThisFrame;
@@ -37,6 +44,11 @@ namespace Unity.FPS.Game
                 return (Random.value <= DropRate);
         }
 
+        public void Update()
+        {
+            m_WasDamagedThisFrame = false;
+        }
+
         void Start()
         {
             m_Health = GetComponent<Health>();
@@ -47,36 +59,40 @@ namespace Unity.FPS.Game
             m_Health.OnDamaged += OnDamaged;
         }
 
-        private void Update()
-        {
-            Debug.Log(m_Health.CurrentHealth);
-            m_WasDamagedThisFrame = false;
-        }
-
         void OnDamaged(float damage, GameObject damageSource)
         {
             if (damageSource && !damageSource.GetComponent<Destructable>()) //checks if damage was from player
             {
 
-                // play the damage tick sound
+                //play the damage tick sound
                 if (DamageTick && !m_WasDamagedThisFrame)
-                    AudioUtility.CreateSFX(DamageTick, transform.position, AudioUtility.AudioGroups.DamageTick, 0f);
+                {
+                    AudioSource.PlayOneShot(DamageTick);
+                    
+                }
 
-                m_WasDamagedThisFrame = true;
             }
+            m_WasDamagedThisFrame = true;
         }
 
         void OnDie()
         {
+
             if (TryDropItem())
             {
                 Instantiate(LootPrefab, transform.position, Quaternion.identity);
             }
+
             var vfx = Instantiate(DestroyVfx, DestroyVfxSpawnPoint.position, Quaternion.identity);
-            AudioUtility.CreateSFX(DestroySound, transform.position, AudioUtility.AudioGroups.DamageTick, 1f);
+            AudioSource.PlayOneShot(DestroySound);
+
+            //make object appear to be destroyed to player
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<MeshCollider>().enabled = false;
+
             // this will call the OnDestroy function
-            Destroy(gameObject);
+            Destroy(gameObject, 1);
         }
-        
+
     }
 }
