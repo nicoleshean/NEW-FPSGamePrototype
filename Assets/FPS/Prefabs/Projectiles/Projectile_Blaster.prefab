@@ -48,8 +48,7 @@ MonoBehaviour:
   Root: {fileID: 3659995153115176982}
   Tip: {fileID: 1135791333161367127}
   MaxLifeTime: 5
-  ImpactVfx: {fileID: 7655095426451682942, guid: a7d68b1a502e02a49b8efb1b86a8c931,
-    type: 3}
+  ImpactVfx: {fileID: 7655095426451682942, guid: a7d68b1a502e02a49b8efb1b86a8c931, type: 3}
   ImpactVfxLifetime: 5
   ImpactVfxSpawnOffset: 0.1
   ImpactSfxClip: {fileID: 0}
@@ -88,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 5564024855854763701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 101.4293}
+  m_LocalScale: {x: 5, y: 5, z: 101.4293}
   m_Children: []
   m_Father: {fileID: 8402172112652589804}
   m_RootOrder: 0

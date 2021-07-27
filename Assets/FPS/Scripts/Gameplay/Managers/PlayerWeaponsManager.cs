@@ -202,7 +202,7 @@ namespace Unity.FPS.Gameplay
                 if (Physics.Raycast(WeaponCamera.transform.position, WeaponCamera.transform.forward, out RaycastHit hit,
                     1000, -1, QueryTriggerInteraction.Ignore))
                 {
-                    if (hit.collider.GetComponentInParent<Health>() != null)
+                    if (hit.collider.GetComponentInParent<Health>() != null && !hit.collider.CompareTag("Destructable"))
                     {
                         IsPointingAtEnemy = true;
                     }

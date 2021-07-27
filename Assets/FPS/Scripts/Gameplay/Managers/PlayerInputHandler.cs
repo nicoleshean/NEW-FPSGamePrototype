@@ -180,6 +180,15 @@ namespace Unity.FPS.Gameplay
             return false;
         }
 
+        public bool GetInteractButtonDown()
+        {
+            if (CanProcessInput())
+            {
+                return Input.GetButtonDown(GameConstants.k_ButtonInteract);
+            }
+            return false;
+        }
+
         public int GetSwitchWeaponInput() //SWITCH WEAPON -> used in PlayerWeaponsManager
         {
             if (CanProcessInput())
