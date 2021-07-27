@@ -88,7 +88,20 @@ namespace Unity.FPS.Game
 
             //make object appear to be destroyed to player
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<MeshCollider>().enabled = false;
+
+            if (gameObject.GetComponent<BoxCollider>() != null)
+            {
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+
+            if (gameObject.GetComponent<MeshCollider>() != null)
+            {
+                gameObject.GetComponent<MeshCollider>().enabled = false;
+            }
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
 
             // this will call the OnDestroy function
             Destroy(gameObject, 1);
