@@ -190,7 +190,7 @@ namespace Unity.FPS.Gameplay
 
         void Update()
         {
-
+            
 
             // check for Y kill
             if (!IsDead && transform.position.y < KillHeight)
@@ -202,7 +202,7 @@ namespace Unity.FPS.Gameplay
 
             //Debug.Log(startYPos);
 
- 
+            bool wasGrounded = IsGrounded;
 
             if (!IsGrounded)
             {
@@ -218,31 +218,12 @@ namespace Unity.FPS.Gameplay
                 }
             }
 
-            //if game isn't ending, check for fall damage
+
             GroundCheck();
-            if (!m_GameFlowManager.GameIsEnding)
-            {
-                FallCheck();
-
-            }
 
 
-
-            // crouching
-            if (m_InputHandler.GetCrouchInputDown())
-            {
-                SetCrouchingState(!IsCrouching, false);
-            }
-
-            UpdateCharacterHeight(false);
-
-            HandleCharacterMovement();
-        }
-
-        void FallCheck()
-        {
-            bool wasGrounded = IsGrounded;
-            if (IsGrounded && !wasGrounded) //if now grounded after not being grounded before
+            // landing
+            if (IsGrounded && !wasGrounded && !m_GameFlowManager.GameIsEnding) //if now grounded after not being grounded before + if game isn't ending
             {
                 endYPos = gameObject.transform.position.y;
 
@@ -251,7 +232,7 @@ namespace Unity.FPS.Gameplay
                 {
                     if (m_inflictDamage)
                     {
-
+                        
                         int dmgFromFall = Mathf.RoundToInt((startYPos - endYPos - DamageThreshold) * DamageMultiplier);
                         m_Health.TakeDamage(dmgFromFall, null);
                         AudioSource.PlayOneShot(FallDamageSfx);
@@ -263,6 +244,8 @@ namespace Unity.FPS.Gameplay
                 {
                     AudioSource.PlayOneShot(LandSfx);
                 }
+
+
 
                 // Speed Fall damage
                 //float fallSpeed = -Mathf.Min(CharacterVelocity.y, m_LatestImpactSpeed.y);
@@ -282,6 +265,16 @@ namespace Unity.FPS.Gameplay
                 //    AudioSource.PlayOneShot(LandSfx);
                 //}
             }
+
+            // crouching
+            if (m_InputHandler.GetCrouchInputDown())
+            {
+                SetCrouchingState(!IsCrouching, false);
+            }
+
+            UpdateCharacterHeight(false);
+
+            HandleCharacterMovement();
         }
 
         void OnDie() //called from OnDie delegate
