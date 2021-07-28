@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LootPrefab: {fileID: 5391986374566301945, guid: e8fa227a7004d8243b5516e8b0bd7f13, type: 3}
-  DropRate: 0.25
+  DropRate: 0.34
   DestroyVfx: {fileID: 7655095426451682942, guid: 073e2f4dd645e704a9af6c32bd1814c7, type: 3}
   DestroyVfxSpawnPoint: {fileID: 5735073999518128602}
   AudioSource: {fileID: 317009408363368213}
