@@ -38,7 +38,7 @@ namespace Unity.FPS.Gameplay
             {
                 chestAnimator.SetBool("playOpen", true);
                 Invoke("SpawnLoot", 2);
-                HasSpawnedLoot = true;
+                
             }    
         }
 
@@ -56,6 +56,7 @@ namespace Unity.FPS.Gameplay
         private void SpawnLoot()
         {
             LootPrefab.SetActive(true);
+            HasSpawnedLoot = true;
             //Instantiate(LootPrefab, LootSpawnPoint.position, Quaternion.identity);
         }
 
@@ -65,22 +66,26 @@ namespace Unity.FPS.Gameplay
             {
                 ChestWithinRange = false;
                 chestAnimator.SetBool("playShake", false);
-                if (HasSpawnedLoot)
-                {
-                    chestAnimator.SetBool("playClose", true);
-                    Invoke("DisableGlow", 1);
-                }
+                Invoke("CloseChest", 0);
             }
         }
 
-        private void DisableGlow()
+        private void CloseChest()
         {
-            material.DisableKeyword("_EMISSION");
-            for (int i = 0; i < transform.childCount; i++)
+            
+            if (HasSpawnedLoot)
             {
-                material = transform.GetChild(i).gameObject.GetComponent<Renderer>().material;
                 material.DisableKeyword("_EMISSION");
+                chestAnimator.SetBool("playClose", true);
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    material = transform.GetChild(i).gameObject.GetComponent<Renderer>().material;
+                    material.DisableKeyword("_EMISSION");
+                }
+                
             }
+            
+            
         }
     }
 }
