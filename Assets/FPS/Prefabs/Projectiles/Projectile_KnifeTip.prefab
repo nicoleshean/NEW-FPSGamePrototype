@@ -48,8 +48,7 @@ MonoBehaviour:
   Root: {fileID: 2013444255906723506}
   Tip: {fileID: 363818072705107181}
   MaxLifeTime: 0.1
-  ImpactVfx: {fileID: 748781637555137343, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
-    type: 3}
+  ImpactVfx: {fileID: 748781637555137343, guid: 3f5b545b9a1e74c418b061bba5bb9e2c, type: 3}
   ImpactVfxLifetime: 5
   ImpactVfxSpawnOffset: 0.1
   ImpactSfxClip: {fileID: 0}
@@ -60,7 +59,7 @@ MonoBehaviour:
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: -1
   InheritWeaponVelocity: 0
-  Damage: 35
+  Damage: 25
   AreaOfDamage: {fileID: 0}
   RadiusColor: {r: 0, g: 0.2, b: 0.2, a: 0.2}
 --- !u!1 &652500401827659815

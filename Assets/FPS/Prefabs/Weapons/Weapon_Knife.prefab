@@ -185,9 +185,8 @@ MonoBehaviour:
   WeaponRoot: {fileID: 8287073807208391248}
   WeaponMuzzle: {fileID: 8104449584285757573}
   ShootType: 0
-  ProjectilePrefab: {fileID: 1989646428482723635, guid: ac1c372a4be2e6541af94a5d028dd587,
-    type: 3}
-  DelayBetweenShots: 0.5
+  ProjectilePrefab: {fileID: 1989646428482723635, guid: ac1c372a4be2e6541af94a5d028dd587, type: 3}
+  DelayBetweenShots: 0.3
   BulletSpreadAngle: 0
   BulletsPerShot: 1
   RecoilType: 1
@@ -196,7 +195,6 @@ MonoBehaviour:
   AimZoomRatio: 1
   AimOffset: {x: 0, y: 0, z: 0}
   AutomaticReload: 1
-  HasPhysicalBullets: 0
   ClipSize: 1
   ShellCasing: {fileID: 0}
   EjectionPort: {fileID: 0}
@@ -293,8 +291,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: a89772d5378415745aa7b07b29bc8943, type: 3}
 --- !u!4 &7740679744238395242 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: a89772d5378415745aa7b07b29bc8943,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: a89772d5378415745aa7b07b29bc8943, type: 3}
   m_PrefabInstance: {fileID: 7740679744238257642}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8287073807208293616
@@ -368,13 +365,11 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 18f6e8985d06fba45840cc1802f5beee, type: 3}
 --- !u!1 &8287073807208391248 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 18f6e8985d06fba45840cc1802f5beee,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 18f6e8985d06fba45840cc1802f5beee, type: 3}
   m_PrefabInstance: {fileID: 8287073807208293616}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8287073807208693360 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 18f6e8985d06fba45840cc1802f5beee,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 18f6e8985d06fba45840cc1802f5beee, type: 3}
   m_PrefabInstance: {fileID: 8287073807208293616}
   m_PrefabAsset: {fileID: 0}

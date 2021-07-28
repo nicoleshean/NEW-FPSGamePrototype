@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/FPS/Scenes/CustomizedScene.unity
     guid: 2f857927d3e59ee45a688e8c82649b3f
   - enabled: 1
-    path: Assets/FPS/Scenes/SecondaryScene.unity
-    guid: f3ca2a870ec141241aa0852c0a8b0abc
+    path: Assets/FPS/Scenes/WinScene.unity
+    guid: 037d06fbede2b4041a843d9ee6fe750c
   - enabled: 1
     path: Assets/FPS/Scenes/LoseScene.unity
     guid: 72e5c65a45893714484002914e3fd521
