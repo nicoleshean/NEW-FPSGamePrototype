@@ -17,8 +17,18 @@ namespace Unity.FPS.Gameplay
         PlayerInputHandler m_InputHandler;
         bool HasSpawnedLoot;
         bool ChestWithinRange;
+        bool ChestIsClosed;
         Material material;
         public GameObject sparkles;
+
+        [Header("SFX")]
+        public AudioSource AudioSource;
+
+        [Tooltip("Sound chest makes when opening")]
+        public AudioClip ChestOpenSFX;
+
+        [Tooltip("Sound chest makes when closing")]
+        public AudioClip ChestCloseSFX;
 
         // Start is called before the first frame update
         void Start()
@@ -37,8 +47,8 @@ namespace Unity.FPS.Gameplay
             if (ChestWithinRange && m_InputHandler.GetInteractButtonDown() && !HasSpawnedLoot)
             {
                 chestAnimator.SetBool("playOpen", true);
+                AudioSource.PlayOneShot(ChestOpenSFX, 1);
                 Invoke("SpawnLoot", 2);
-                
             }    
         }
 
@@ -73,7 +83,7 @@ namespace Unity.FPS.Gameplay
         private void CloseChest()
         {
             
-            if (HasSpawnedLoot)
+            if (HasSpawnedLoot && !ChestIsClosed)
             {
                 material.DisableKeyword("_EMISSION");
                 chestAnimator.SetBool("playClose", true);
@@ -82,9 +92,9 @@ namespace Unity.FPS.Gameplay
                     material = transform.GetChild(i).gameObject.GetComponent<Renderer>().material;
                     material.DisableKeyword("_EMISSION");
                 }
-                
+                AudioSource.PlayOneShot(ChestCloseSFX, 1);
             }
-            
+            ChestIsClosed = true;
             
         }
     }
