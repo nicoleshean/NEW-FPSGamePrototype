@@ -18,6 +18,7 @@ namespace Unity.FPS.Gameplay
         bool HasSpawnedLoot;
         bool ChestWithinRange;
         Material material;
+        public GameObject sparkles;
 
         // Start is called before the first frame update
         void Start()
@@ -26,6 +27,8 @@ namespace Unity.FPS.Gameplay
             HasSpawnedLoot = false;
             ChestWithinRange = false;
             material = GetComponent<Renderer>().material;
+            sparkles = this.transform.Find("VFX_Sparkles").gameObject;
+            LootPrefab.SetActive(false);
         }
 
         // Update is called once per frame
@@ -34,7 +37,7 @@ namespace Unity.FPS.Gameplay
             if (ChestWithinRange && m_InputHandler.GetInteractButtonDown() && !HasSpawnedLoot)
             {
                 chestAnimator.SetBool("playOpen", true);
-                Invoke("SpawnLoot", 1.5f);
+                Invoke("SpawnLoot", 2);
                 HasSpawnedLoot = true;
             }    
         }
@@ -46,12 +49,14 @@ namespace Unity.FPS.Gameplay
                 m_InputHandler = other.GetComponent<PlayerInputHandler>();
                 ChestWithinRange = true;
                 chestAnimator.SetBool("playShake", true);
+                sparkles.SetActive(false);
             }
         }
 
         private void SpawnLoot()
         {
-            Instantiate(LootPrefab, LootSpawnPoint.position, Quaternion.identity);
+            LootPrefab.SetActive(true);
+            //Instantiate(LootPrefab, LootSpawnPoint.position, Quaternion.identity);
         }
 
         private void OnTriggerExit(Collider other)
