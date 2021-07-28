@@ -93,8 +93,9 @@ namespace Unity.FPS.Gameplay
                     material.DisableKeyword("_EMISSION");
                 }
                 AudioSource.PlayOneShot(ChestCloseSFX, 1);
+                ChestIsClosed = true;
             }
-            ChestIsClosed = true;
+            
             
         }
     }
