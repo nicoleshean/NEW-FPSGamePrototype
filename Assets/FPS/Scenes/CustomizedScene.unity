@@ -15852,6 +15852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particles_Ground Fog
       objectReference: {fileID: 0}
+    - target: {fileID: 1270531305905554, guid: 90b4b4e78ba0b384abe4fb0d7aeb8ad0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4652448755463182, guid: 90b4b4e78ba0b384abe4fb0d7aeb8ad0, type: 3}
       propertyPath: m_RootOrder
       value: 11
