@@ -243,6 +243,7 @@ namespace Unity.FPS.Gameplay
                 else
                 {
                     AudioSource.PlayOneShot(LandSfx);
+                    startYPos = gameObject.transform.position.y;
                 }
 
 
