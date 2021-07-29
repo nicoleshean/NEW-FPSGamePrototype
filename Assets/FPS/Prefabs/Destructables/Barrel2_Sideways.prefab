@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 269235116723133189}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.25, y: 0.3, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27364eefd6dd0341ba72a3bfc0d9727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 50
+  MaxHealth: 45
   CriticalHealthRatio: 0.3
 --- !u!114 &8481147627040649818
 MonoBehaviour:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LootPrefab: {fileID: 9114302251155428648, guid: 9ece032c799294749bbc3a5893605d91, type: 3}
-  DropRate: 1
+  DropRate: 0.45
   DestroyVfx: {fileID: 7655095426451682942, guid: 073e2f4dd645e704a9af6c32bd1814c7, type: 3}
   DestroyVfxSpawnPoint: {fileID: 269235116722636581}
   AudioSource: {fileID: 5573288009916964665}
