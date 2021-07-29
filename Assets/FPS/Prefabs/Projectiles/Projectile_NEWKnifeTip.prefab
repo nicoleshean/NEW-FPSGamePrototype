@@ -48,8 +48,7 @@ MonoBehaviour:
   Root: {fileID: 5991475391652913586}
   Tip: {fileID: 4153250158355734697}
   MaxLifeTime: 0.3
-  ImpactVfx: {fileID: 748781637555137343, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
-    type: 3}
+  ImpactVfx: {fileID: 748781637555137343, guid: 3f5b545b9a1e74c418b061bba5bb9e2c, type: 3}
   ImpactVfxLifetime: 5
   ImpactVfxSpawnOffset: 0.1
   ImpactSfxClip: {fileID: 0}
@@ -60,7 +59,7 @@ MonoBehaviour:
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: -1
   InheritWeaponVelocity: 0
-  Damage: 35
+  Damage: 25
   AreaOfDamage: {fileID: 0}
   RadiusColor: {r: 0, g: 0.2, b: 0.2, a: 0.2}
 --- !u!1 &8862835651233178048
@@ -168,7 +167,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 5fc0e3d37ec294384aaa0b18e537ff86, type: 3}
 --- !u!4 &5991475391652913586 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 5fc0e3d37ec294384aaa0b18e537ff86,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 5fc0e3d37ec294384aaa0b18e537ff86, type: 3}
   m_PrefabInstance: {fileID: 5991475391652526898}
   m_PrefabAsset: {fileID: 0}
