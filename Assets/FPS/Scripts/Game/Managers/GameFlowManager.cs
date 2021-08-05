@@ -28,6 +28,9 @@ namespace Unity.FPS.Game
         [Header("Lose")] [Tooltip("This string has to be the name of the scene you want to load when losing")]
         public string LoseSceneName = "LoseScene";
 
+        [Tooltip("Volume slider")]
+        public UnityEngine.UI.Slider volumeSlider;
+
 
         public bool GameIsEnding { get; private set; }
 
@@ -42,7 +45,8 @@ namespace Unity.FPS.Game
 
         void Start()
         {
-            AudioUtility.SetMasterVolume(1);
+            //AudioUtility.SetMasterVolume(.5f);
+            AudioUtility.SetMasterVolume(volumeSlider.value);
         }
 
         void Update()

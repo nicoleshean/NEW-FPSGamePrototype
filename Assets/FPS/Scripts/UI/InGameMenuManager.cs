@@ -34,6 +34,8 @@ namespace Unity.FPS.UI
         Health m_PlayerHealth;
         FramerateCounter m_FramerateCounter;
 
+        float m_CurrentVolume;
+
         void Start()
         {
             m_PlayerInputsHandler = FindObjectOfType<PlayerInputHandler>();
@@ -61,6 +63,8 @@ namespace Unity.FPS.UI
             FramerateToggle.onValueChanged.AddListener(OnFramerateCounterChanged);
 
             Time.timeScale = 1f;
+
+            
         }
 
         void Update()
@@ -115,7 +119,7 @@ namespace Unity.FPS.UI
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0f;
-                AudioUtility.SetMasterVolume(VolumeWhenMenuOpen);
+                //AudioUtility.SetMasterVolume(VolumeWhenMenuOpen);
 
                 EventSystem.current.SetSelectedGameObject(null);
             }
@@ -124,7 +128,7 @@ namespace Unity.FPS.UI
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 Time.timeScale = 1f;
-                AudioUtility.SetMasterVolume(1);
+                //AudioUtility.SetMasterVolume(1);
             }
 
         }
