@@ -41,6 +41,9 @@ namespace Unity.FPS.Game
         [Tooltip("The image that will be displayed in the UI for this weapon")]
         public Sprite WeaponIcon;
 
+        //[Tooltip("Whether or not the weapon is ranged")]
+        //public bool WeaponIsRanged;
+
         [Tooltip("Default data for the crosshair")]
         public CrosshairData CrosshairDataDefault;
 

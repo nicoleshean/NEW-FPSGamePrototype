@@ -17,6 +17,7 @@ namespace Unity.FPS.UI
         CrosshairData m_CrosshairDataDefault;
         CrosshairData m_CrosshairDataTarget;
         CrosshairData m_CurrentCrosshair;
+        //bool m_WeaponIsRanged;
 
         void Start()
         {
@@ -36,6 +37,7 @@ namespace Unity.FPS.UI
 
         void UpdateCrosshairPointingAtEnemy(bool force)
         {
+            //m_WeaponIsRanged = m_WeaponsManager.GetActiveWeapon().WeaponIsRanged; //
             if (m_CrosshairDataDefault.CrosshairSprite == null)
                 return;
 

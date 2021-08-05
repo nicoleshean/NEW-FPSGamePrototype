@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: Tactical Knife
   WeaponIcon: {fileID: 21300000, guid: f059c8ae7d8922a45a96d477d7e56f4a, type: 3}
+  WeaponIsRanged: 0
   CrosshairDataDefault:
     CrosshairSprite: {fileID: 21300000, guid: 2962952d6e5ae7342a298d45a3945069, type: 3}
     CrosshairSize: 120
