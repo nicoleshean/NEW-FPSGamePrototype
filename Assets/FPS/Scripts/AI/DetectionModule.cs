@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections;
 using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +16,9 @@ namespace Unity.FPS.AI
 
         [Tooltip("The max distance at which the enemy can attack its target")]
         public float AttackRange = 10f;
+
+        [Tooltip("The amount of time before the enemy attacks")]
+        public float ReactionTime = 1f;
 
         [Tooltip("Time before an enemy abandons a known target that it can't see anymore")]
         public float KnownTargetTimeout = 4f;
@@ -52,15 +56,15 @@ namespace Unity.FPS.AI
             }
 
             // Find the closest visible hostile actor
-            float sqrDetectionRange = DetectionRange * DetectionRange;
+            float sqrDetectionRange = DetectionRange * DetectionRange; //creates square detection range area
             IsSeeingTarget = false;
             float closestSqrDistance = Mathf.Infinity;
-            foreach (Actor otherActor in m_ActorsManager.Actors)
+            foreach (Actor otherActor in m_ActorsManager.Actors) //checks all actors
             {
-                if (otherActor.Affiliation != actor.Affiliation)
+                if (otherActor.Affiliation != actor.Affiliation) //if other actor that isn't same affiliation as this actor
                 {
-                    float sqrDistance = (otherActor.transform.position - DetectionSourcePoint.position).sqrMagnitude;
-                    if (sqrDistance < sqrDetectionRange && sqrDistance < closestSqrDistance)
+                    float sqrDistance = (otherActor.transform.position - DetectionSourcePoint.position).sqrMagnitude;  //distance of other actor
+                    if (sqrDistance < sqrDetectionRange && sqrDistance < closestSqrDistance) //if the distance of other actor is within detection range
                     {
                         // Check for obstructions
                         RaycastHit[] hits = Physics.RaycastAll(DetectionSourcePoint.position,
@@ -102,7 +106,8 @@ namespace Unity.FPS.AI
             if (!HadKnownTarget &&
                 KnownDetectedTarget != null)
             {
-                OnDetect();
+                StartCoroutine(EnemyReact());
+                
             }
 
             if (HadKnownTarget &&
@@ -113,6 +118,12 @@ namespace Unity.FPS.AI
 
             // Remember if we already knew a target (for next frame)
             HadKnownTarget = KnownDetectedTarget != null;
+        }
+
+        public IEnumerator EnemyReact()
+        {
+            yield return new WaitForSeconds(ReactionTime);
+            OnDetect();
         }
 
         public virtual void OnLostTarget() => onLostTarget?.Invoke();
