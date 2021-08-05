@@ -3,6 +3,7 @@ using Unity.FPS.Gameplay;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Unity.FPS.UI
 {
@@ -58,6 +59,8 @@ namespace Unity.FPS.UI
 
             FramerateToggle.isOn = m_FramerateCounter.UIText.gameObject.activeSelf;
             FramerateToggle.onValueChanged.AddListener(OnFramerateCounterChanged);
+
+            Time.timeScale = 1f;
         }
 
         void Update()
@@ -149,6 +152,16 @@ namespace Unity.FPS.UI
         public void OnShowControlButtonClicked(bool show)
         {
             ControlImage.SetActive(show);
+        }
+
+        public void OnRestartButtonClicked()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void OnMainMenuButtonClicked()
+        {
+            SceneManager.LoadScene("IntroMenu");
         }
     }
 }
