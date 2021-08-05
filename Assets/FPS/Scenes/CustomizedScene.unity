@@ -24029,7 +24029,7 @@ PrefabInstance:
       objectReference: {fileID: 7604105038580811793, guid: 9be2d35722fa52344b7135cf4b3c0127, type: 3}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7, type: 3}
       propertyPath: MaxSpeedInAir
-      value: 20
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7, type: 3}
       propertyPath: DamageThreshold
